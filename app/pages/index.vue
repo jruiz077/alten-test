@@ -37,15 +37,25 @@ import { ref } from "vue";
 
 const categories = ref(JSON.stringify(DEFAULT_CATEGORIES, null, 4));
 const categoryName = ref("");
-const pathValue = ref<string | null>("");
+const pathValue = ref<string | null>(null);
 const errorMessage = ref("");
+
+// Function to reset path and error message
+const resetValues = () => {
+  pathValue.value = null;
+  errorMessage.value = "";
+};
 
 // Function to calculate the path of the specified category
 const getPathCategory = () => {
-  errorMessage.value = "";
+  resetValues();
   try {
-    const parsedCategories: Category[] = JSON.parse(categories.value);
-    pathValue.value = getCategoryPath(parsedCategories, categoryName.value);
+    if (!categoryName.value.trim()) {
+      errorMessage.value = "Please enter a category name.";
+      return;
+    }
+    const parsed = JSON.parse(categories.value) as Category[];
+    pathValue.value = getCategoryPath(parsed, categoryName.value) ?? null;
     console.log("Calculated path:", pathValue.value);
     if (pathValue.value === null) {
       errorMessage.value =
