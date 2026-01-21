@@ -32,6 +32,7 @@ defineProps<{
 
 .success code {
   background: #dcfce723;
+  font-size: 1.5rem;
 }
 
 .placeholder {
