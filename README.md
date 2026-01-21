@@ -114,7 +114,29 @@ bun run dev
 - **Nuxt 4** - Vue.js framework
 - **TypeScript** - Type safety
 - **Vue 3** - Composition API with `<script setup>`
+- **Vitest** - Unit testing framework
+- **Vue Test Utils** - Vue component testing
 - **ESLint** - Code linting
+
+## 🧪 Testing
+
+Run tests once:
+
+```bash
+npm run test
+```
+
+Run tests in watch mode:
+
+```bash
+npm run test:watch
+```
+
+### Test Coverage
+
+- **PathResult.vue** - Component rendering for success, error, and placeholder states
+- **index.vue** - Main page functionality, path calculation, and error handling
+- **pathCalculator.ts** - Core algorithm unit tests
 
 ## 📚 Documentation
 
